@@ -1,8 +1,9 @@
+import { all } from "axios";
 import puppeteer from "puppeteer";
 
 const warframeWiki = "https://warframe.fandom.com/wiki/Baro_Ki%27Teer/Trades";
 
-const main = async () => {
+const scraper = async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
@@ -25,11 +26,13 @@ const main = async () => {
         const lastDatesArr = Array.from(lastDates).map(lastDate => {
             date = lastDate.innerText.substr(lastDate.innerText.length - 10)
             if(date == ' (PC only)')
-                return lastDate.innerText.substr(lastDate.innerText.length - 20)
+                return lastDate.innerText.substr(lastDate.innerText.length - 20).replace(" (PC only)", "")
+            else if(date.length == 0)
+                return null
             else
                 return lastDate.innerText.substr(lastDate.innerText.length - 10)
         });
-
+        console.log("Items: ", namesArr.length);
         return namesArr.map((item,index) => ({
                 name: item,
                 thumbnail: thumbnailsArr[index],
@@ -38,9 +41,9 @@ const main = async () => {
                 lastDate: lastDatesArr[index]
         }));
     })
-
-    console.log(allItems.filter(item => item.name == "Pedestal Prime"));
+    //console.log(allItems.filter(item => item.name == "Pedestal Prime"));
     await browser.close();
+    return allItems;
 }
 
-main();
+export default scraper

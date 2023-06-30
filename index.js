@@ -1,34 +1,19 @@
-import pg from 'pg';
+import database from './database/database.js';
+import getInventory from './baroChecker.js'
 
-const client = new pg.Client({
-    user: 'postgres',
-    host: 'localHost',
-    database: 'test',
-    password: '',
-    port: 5432,
-});
+// Update 
+// await database.dropTable();
+// await database.createTable();
+// await database.populateTable();
 
-const query = `
-    DROP TABLE IF EXISTS person;
-    CREATE TABLE person (
-        id INT NOT NULL PRIMARY KEY,
-        first_name VARCHAR(50) NOT NULL,
-        last_name VARCHAR(50) NOT NULL,
-        gender VARCHAR(10) NOT NULL,
-        date_of_birth DATE NOT NULL
-    );
-`;
+// Get new item
+const inventory = await getInventory();
+console.log(inventory);
+// for(const item of inventory){
+//     if(await database.findItem(item.item) == -1)
+//         console.log("The new item this week is: ",item);
+//         break;
+// }
 
-client.connect().then( () => {
-    console.log("connected");
-    client.query(query, (err, res) => {
-        if (err) {
-            console.log(err)
-        } else {
-            console.log(res.rows)
-        }
-        client.end();
-    })
-}).catch(error => {
-    console.log(error);
-});
+// Find item
+//await database.findItem("Volcanic");
