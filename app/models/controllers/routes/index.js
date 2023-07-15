@@ -1,5 +1,8 @@
-import database from './database/database.js';
-import {getInventory, getLocation} from './baroChecker.js'
+import database from '../../../../config/database.js';
+import express from 'express';
+import {getInventory, getLocation} from './services/baroChecker.js'
+
+const app = express();
 
 // Update 
 // await database.dropTable();
@@ -11,8 +14,8 @@ const location = await getLocation();
 console.log(location);
 
 // Get new item
-//const inventory = await getInventory();
-//console.log(inventory);
+// const inventory = await getInventory();
+// console.log(inventory);
 // for(const item of inventory){
 //     if(await database.findItem(item.item) == -1)
 //         console.log("The new item this week is: ",item);

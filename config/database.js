@@ -1,7 +1,7 @@
 import pg from 'pg';
 import queries from './queries.js';
 import 'dotenv/config';
-import scraper from '../scraper.js';
+import scraper from '../app/models/controllers/routes/services/scraper.js';
 
 const createClient = () => {
     return new pg.Client({
