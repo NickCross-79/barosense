@@ -6,4 +6,10 @@ describe('ItemModel', () => {
 
         expect(item.name).toEqual('Jolt');
     });
+
+    test('fetches all items', async () => {
+        const item = await ItemModel.getItems();
+
+        expect(item).toBeDefined();
+    })
 });

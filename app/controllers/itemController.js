@@ -1,8 +1,9 @@
 import ItemService from "../services/itemService.js";
 
+const itemService = new ItemService();
+
 const getItemByName = async (req, res) => {
     try {
-        const itemService = new ItemService();
         const item = await itemService.getItemByName(req.params.name);
         res.status(200).json(item);
     } catch (err) {
@@ -10,6 +11,16 @@ const getItemByName = async (req, res) => {
     }
 }
 
+const getItems = async (req, res) => {
+    try {
+        const items = await itemService.getItems();
+        res.status(200).json(items);
+    } catch (err) {
+        res.status(500).json({ error: 'Internal Server Error:',err });
+    }
+}
+
 export default {
-    getItemByName
+    getItemByName,
+    getItems
 };

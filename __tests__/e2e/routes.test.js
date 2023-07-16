@@ -7,5 +7,11 @@ describe('GET routes', () => {
         const response = await request(app).get(`/api/items/${itemName}`);
 
         expect(response.status).toBe(200);
+    });
+
+    test('returns all items', async () => {
+        const response = await request(app).get('/api/items');
+
+        expect(response.status).toBe(200);
     })
 })

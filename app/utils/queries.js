@@ -23,6 +23,9 @@ const queries = {
     findItem:`
         SELECT * FROM items
         WHERE name = $1;
+    `,
+    getItems:`
+        SELECT * FROM items;
     `
 }
 
