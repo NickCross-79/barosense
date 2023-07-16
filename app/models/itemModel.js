@@ -1,7 +1,6 @@
 import db from '../utils/db.js';
-import pkg from 'pg';
 import 'dotenv/config';
-const { Pool } = pkg
+import queries from '../utils/queries.js';
 
 class ItemModel {
     static async getItemByName(itemName) {
@@ -9,7 +8,7 @@ class ItemModel {
             const sql = 'SELECT * FROM items WHERE name = $1';
             const params = [itemName];
             
-            const result = await db(sql, params);
+            const result = await db(queries.findItem, params);
             return result[0] || null;
         } catch (err) {
             throw new Error(`Error retreiving item: ${err}`);

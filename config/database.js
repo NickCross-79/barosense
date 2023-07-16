@@ -1,9 +1,6 @@
-import pg from 'pg';
 import pkg from 'pg';
 const { Pool } = pkg
-import queries from '../app/utils/queries.js';
 import 'dotenv/config';
-import scraper from '../app/services/scraper.js';
 
 const pool = new Pool({
     user: 'postgres',
