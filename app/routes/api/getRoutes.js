@@ -4,6 +4,6 @@ const router = express.Router();
 router.use(express.json());
 
 // GET item by name
-router.get('/item/:name', ItemController.getItemByName);
+router.get('/items/:name', ItemController.getItemByName);
 
 export default router;
