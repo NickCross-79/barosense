@@ -5,7 +5,7 @@ const data = baroData();
 const getBaroData = async (req, res) => {
     try {
         const response = await baroData();
-        res.status(200).json(response);
+        res.status(200).json({location: response.location, activation: response.activation, expiry: response.expiry, active: response.active, inventory: response.inventory});
     } catch (err) {
         res.status(500).json({error: 'Internal server error:',err});
     }
