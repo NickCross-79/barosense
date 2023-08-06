@@ -4,7 +4,8 @@ const data = baroData();
 
 const getBaroData = async (req, res) => {
     try {
-        res.status(200).json(data);
+        const response = await baroData();
+        res.status(200).json(response);
     } catch (err) {
         res.status(500).json({error: 'Internal server error:',err});
     }
@@ -12,7 +13,8 @@ const getBaroData = async (req, res) => {
 
 const getBaroLocation = async (req, res) => {
     try {
-        res.status(200).json({location: data.location});
+        const response = await baroData();
+        res.status(200).json({location: response.location});
     } catch (err) {
         res.status(500).json({error: 'Internal server error:',err});
     }
@@ -20,7 +22,8 @@ const getBaroLocation = async (req, res) => {
 
 const getBaroCountdown = async (req, res) => {
     try {
-        res.status(200).json({activation: data.activation, expiry: data.expiry, active: data.active});
+        const response = await baroData();
+        res.status(200).json({activation: response.activation, expiry: response.expiry, active: response.active});
     } catch (err) {
         res.status(500).json({error: 'Internal server error:',err});
     }
@@ -28,7 +31,8 @@ const getBaroCountdown = async (req, res) => {
 
 const getBaroInventory = async (req, res) => {
     try {
-        res.status(200).json({inventory: data.inventory});
+        const response = await baroData();
+        res.status(200).json({inventory: response.inventory});
     } catch (err) {
         res.status(500).json({error: 'Internal server error:',err});
     }
