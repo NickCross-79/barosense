@@ -7,7 +7,7 @@ const getItemByName = async (req, res) => {
         const item = await itemService.getItemByName(req.params.name);
         res.status(200).json(item);
     } catch (err) {
-        res.status(500).json({ error: 'Internal Server Error:',err})
+        res.status(500).json({ error: 'Internal Server Error:',err});
     }
 }
 

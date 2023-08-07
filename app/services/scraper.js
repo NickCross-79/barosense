@@ -1,7 +1,6 @@
 import axios from 'axios';
 import puppeteer from "puppeteer";
 import https from 'https';
-import concurrencyLimit from 'p-limit';
 
 const warframeWiki = "https://warframe.fandom.com/wiki/Baro_Ki%27Teer/Trades";
 
