@@ -23,6 +23,15 @@ class ItemModel {
             throw new Error(`Error retreiving items: ${err}`);
         }
     }
+
+    static async getNewItem() {
+        try {
+            const result = await db(queries.getNewItem);
+            return result || null;
+        } catch (err) {
+            throw new Error(`Error retreiving new item: ${err}`);
+        }
+    }
 }
 
 export default ItemModel;

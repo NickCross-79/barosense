@@ -20,7 +20,17 @@ const getItems = async (req, res) => {
     }
 }
 
+const getNewItem = async (req, res) => {
+    try {
+        const newItem = await itemService.getNewItem();
+        res.status(200).json(newItem);
+    } catch (err) {
+        res.status(500).json({ error: 'Internal Server Error:',err });
+    }
+}
+
 export default {
     getItemByName,
-    getItems
+    getItems,
+    getNewItem,
 };

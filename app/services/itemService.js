@@ -18,6 +18,15 @@ class ItemService {
             throw new Error('Failed to find items');
         }
     }
+
+    async getNewItem() {
+        try {
+            const newItem = await Item.getNewItem();
+            return newItem;
+        } catch (err) {
+            throw new Error('Failed to find new item');
+        }
+    }
 }
 
 export default ItemService;

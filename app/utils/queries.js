@@ -26,6 +26,9 @@ const queries = {
     `,
     getItems:`
         SELECT * FROM items;
+    `,
+    getNewItem:`
+        SELECT * FROM items LIMIT 1;
     `
 }
 
