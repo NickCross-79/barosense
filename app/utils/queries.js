@@ -2,7 +2,7 @@ const queries = {
     createTable:`
         CREATE TABLE items (
             name VARCHAR(100) NOT NULL PRIMARY KEY,
-            thumbnail VARCHAR(200),
+            thumbnail TEXT,
             ducat_price VARCHAR(100) NOT NULL,
             credit_price VARCHAR(100) NOT NULL,
             last_date DATE
