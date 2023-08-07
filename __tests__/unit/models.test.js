@@ -11,5 +11,11 @@ describe('ItemModel', () => {
         const item = await ItemModel.getItems();
 
         expect(item).toBeDefined();
-    })
+    });
+
+    test('fetches newest item', async () => {
+        const item = await ItemModel.getNewItem();
+
+        expect(item).toBeDefined();
+    });
 });

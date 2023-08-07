@@ -34,5 +34,11 @@ describe('GET routes', () => {
         const response = await request(app).get('/api/items');
 
         expect(response.status).toBe(200);
-    })
+    });
+
+    test('fetches newest item', async () => {
+        const response = await request(app).get('/api/items/newItem');
+
+        expect(response.status).toBe(200);
+    });
 })
