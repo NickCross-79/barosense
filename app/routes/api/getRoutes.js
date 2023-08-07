@@ -23,8 +23,6 @@ router.get('/items/newItem', ItemController.getNewItem);
 // GET item by name
 router.get('/items/:name', ItemController.getItemByName);
 
-
-
 // GET all items
 router.get('/items', ItemController.getItems);
 
