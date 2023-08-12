@@ -16,7 +16,7 @@
     "express": "^4.18.2",
     "nodemon": "^2.0.22",
     "pg": "^8.11.1",
-    "puppeteer": "^20.7.3"
+    "warframe-items": "^1.1260.104"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",

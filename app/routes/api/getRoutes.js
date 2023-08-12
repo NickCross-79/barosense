@@ -18,7 +18,7 @@ router.get('/baro/countdown', BaroController.getBaroCountdown);
 router.get('/baro/inventory', BaroController.getBaroInventory);
 
 // GET newest item
-router.get('/items/newItem', ItemController.getNewItem);
+router.get('/baro/inventory/newItem', ItemController.getNewItem);
 
 // GET item by name
 router.get('/items/:name', ItemController.getItemByName);

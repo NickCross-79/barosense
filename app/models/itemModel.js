@@ -1,6 +1,6 @@
 import db from '../utils/db.js';
 import 'dotenv/config';
-import queries from '../utils/queries.js';
+import queries from '../../../server_functions/utils/queries.js';
 
 class ItemModel {
     static async getItemByName(itemName) {
@@ -30,6 +30,14 @@ class ItemModel {
             return result || null;
         } catch (err) {
             throw new Error(`Error retreiving new item: ${err}`);
+        }
+    }
+
+    static async insertNewItem(itemData) {
+        try {
+            const result = await db(queries.insertItem, [itemData]);
+        } catch (err) {
+            throw new Error(`Error inserting new item: ${err}`);
         }
     }
 }
