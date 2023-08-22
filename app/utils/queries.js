@@ -8,6 +8,12 @@ const queries = {
             type VARCHAR(30),
             ducat_price VARCHAR(100) NOT NULL,
             credit_price VARCHAR(100) NOT NULL,
+            wiki_link VARCHAR(150),
+            is_tradable BOOLEAN,
+            can_master BOOLEAN,
+            masteryReq NUMBER,
+            is_mod BOOLEAN,
+            is_new BOOLEAN,
             last_date DATE,
             thumbnail TEXT
         );
@@ -33,9 +39,15 @@ const queries = {
             type,
             ducat_price,
             credit_price,
+            wiki_link,
+            is_tradable,
+            can_master,
+            masteryReq,
+            is_mod,
+            is_new,
             last_date,
             thumbnail)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14);
     `,
     insertInventory:`
         INSERT INTO inventory (
