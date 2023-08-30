@@ -1,6 +1,6 @@
 import db from '../utils/db.js';
 import 'dotenv/config';
-import queries from '../../../server_functions/utils/queries.js';
+import queries from '../utils/queries.js';
 
 class BaroModel {
     static async getNewItem() {
