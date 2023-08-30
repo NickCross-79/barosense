@@ -17,12 +17,7 @@ const baroData = async () => {
 const getInventory = async () => {
     try {
         const inventory = await InventoryModel.getInventory();
-        const inventoryDetailsPromises = inventory.map((item) => {
-            return ItemModel.getItemByName(item.name);
-        });
-        
-        const inventoryDetails = await Promise.all(inventoryDetailsPromises);
-        return inventoryDetails;
+        return inventory;
     } catch (err) {
         throw new Error('Failed to fetch inventory data');
     }
