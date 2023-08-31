@@ -68,9 +68,9 @@ const queries = {
         INNER JOIN items ON inventory.unique_name = items.unique_name;
     `,
     getNewItem:`
-        SELECT * FROM items
-        ORDER BY id DESC
-        LIMIT 1;
+        SELECT * 
+        FROM items
+        WHERE is_new = true;
     `,
     updateItemDate:`
         UPDATE items
