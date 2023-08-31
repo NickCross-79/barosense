@@ -60,12 +60,15 @@ const queries = {
         WHERE name = $1;
     `,
     getItems:`
-        SELECT * FROM items;
+        SELECT *
+        FROM items
+        ORDER BY name ASC;
     `,
     getInventory:`
         SELECT items.*
         FROM inventory
-        INNER JOIN items ON inventory.unique_name = items.unique_name;
+        INNER JOIN items ON inventory.unique_name = items.unique_name
+        ORDER BY name ASC;
     `,
     getNewItem:`
         SELECT * 
