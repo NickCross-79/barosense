@@ -3,11 +3,14 @@ const { Pool } = pkg
 import 'dotenv/config';
 
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localHost',
+    user: process.env.DATABASE_USER,
+    host: process.env.DATABASE_HOST,
     database: process.env.DATABASE_NAME,
     password: process.env.DATABASE_PASS,
     port: process.env.DATABASE_PORT,
+    ssl: {
+        rejectUnauthorized: false,
+    }
 });
 
 export default pool;
