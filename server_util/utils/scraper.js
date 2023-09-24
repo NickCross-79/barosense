@@ -5,7 +5,7 @@ import https from 'https';
 const warframeWiki = "https://warframe.fandom.com/wiki/Baro_Ki%27Teer/Trades";
 
 const scraper = async () => {
-    const browser = await puppeteer.launch({/*headless: false*/});
+const browser = await puppeteer.launch({/*headless: false*/});
     const page = await browser.newPage();
 
     await page.goto(warframeWiki, {timeout: 60000});
